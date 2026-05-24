@@ -1,14 +1,16 @@
 package main
 
+import "fmt"
+
 func main() {
 	// explicit declaration
 	const name int = 18
 	const age string = "Dalton"
-	println(name, age)
+	fmt.Println(name, age)
 
 	// type inference
 	const worksIn = "Ayush Corp."
-	println(worksIn)
+	fmt.Println(worksIn)
 
 	// const groups
 	const (
@@ -18,5 +20,5 @@ func main() {
 		billAmt       = 125.89
 		isTooCostly   = true
 	)
-	println(port, host, cloudProvider, billAmt, isTooCostly)
+	fmt.Println(port, host, cloudProvider, billAmt, isTooCostly)
 }
