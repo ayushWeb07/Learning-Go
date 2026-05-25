@@ -36,7 +36,7 @@ func main() {
 	}
 
 	// initialize wait group
-	var wg sync.WaitGroup
+	wg := sync.WaitGroup{}
 
 	for _, itm := range foods {
 		// add a go routune inside the wait group

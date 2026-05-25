@@ -11,7 +11,7 @@ type Food struct {
 	prepTime int
 }
 
-func prepOrder(food Food, foodChan chan string, wg *sync.WaitGroup) {
+func prepOrder(food Food, foodChan chan<- string, wg *sync.WaitGroup) {
 	defer wg.Done()
 
 	fmt.Printf("Started preparing: %s...\n", food.name)
@@ -51,8 +51,8 @@ func main() {
 
 	// close channel once all data is sent to channel
 	go func() {
+		defer close(foodChan)
 		wg.Wait()
-		close(foodChan)
 	}()
 
 	// receive food names from the channel
