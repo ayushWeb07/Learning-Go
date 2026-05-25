@@ -8,14 +8,14 @@ import (
 
 type Food struct {
 	name     string
-	prepTime time.Duration
+	prepTime int
 }
 
 func prepOrder(food Food, wg *sync.WaitGroup) {
 	defer wg.Done() // at the end of this function, this fires up which frees up the memory
 
 	fmt.Printf("Started preparing: %s...\n", food.name)
-	time.Sleep(food.prepTime * time.Second)
+	time.Sleep(time.Duration(food.prepTime) * time.Second)
 	fmt.Printf("%s has been prepared\n\n", food.name)
 }
 
